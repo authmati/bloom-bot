@@ -1,0 +1,3 @@
+# Ignora archivos o carpetas en este archivo gitignore
+
+**/__pycache__
