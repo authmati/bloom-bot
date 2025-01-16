@@ -1,5 +1,4 @@
 # Ignora archivos o carpetas en este archivo gitignore
 
 **/__pycache__
-**/config.json
 **/macstatus.py
