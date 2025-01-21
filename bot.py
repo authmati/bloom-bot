@@ -1,22 +1,15 @@
 # Importar librerias necesarias:
+from prefixes_loader import get_prefix
+from cogs_loader import load_cogs
 import discord
-from discord import app_commands
 from discord.ext import commands
 import json
-import os
 import asyncio
 
 # Leer el token desde config.json:
 with open("config.json", "r") as config_file:
     config = json.load(config_file)
     TOKEN = config["TOKEN"]
-
-# Cargar prefijos personalizados de servidores:
-def get_prefix(client, message):
-    with open("prefixes.json", "r") as f:
-        new_prefix = json.load(f)
-
-    return new_prefix[str(message.guild.id)]
 
 # Crea una instancia del bot
 bot = commands.Bot(command_prefix=get_prefix, intents=discord.Intents.all())
@@ -28,16 +21,10 @@ async def on_ready():
     await bot.tree.sync()
     print(f"Comandos de {bot.user.name} ({bot.user.id}) sincronizados.")
 
-# Carga los cogs del bot
-async def load():
-    for filename in os.listdir("./cogs"):
-        if filename.endswith(".py"):
-            await bot.load_extension(f"cogs.{filename[:-3]}")
-
 # Inicia el bot
 async def main():
     async with bot:
-        await load()
+        await load_cogs(bot)
         await bot.start(TOKEN)
 
 asyncio.run(main())
