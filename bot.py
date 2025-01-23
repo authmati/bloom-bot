@@ -14,6 +14,7 @@ with open("config.json", "r") as config_file:
 # Crea una instancia del bot
 bot = commands.Bot(command_prefix=get_prefix, intents=discord.Intents.all())
 
+
 # Mensajes de sincronización
 @bot.event
 async def on_ready():
@@ -21,10 +22,12 @@ async def on_ready():
     await bot.tree.sync()
     print(f"Comandos de {bot.user.name} ({bot.user.id}) sincronizados.")
 
+
 # Inicia el bot
 async def main():
     async with bot:
         await load_cogs(bot)
         await bot.start(TOKEN)
+
 
 asyncio.run(main())
