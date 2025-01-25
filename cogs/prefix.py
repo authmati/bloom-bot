@@ -1,17 +1,18 @@
 # Importar librerias necesarias:
+import logging
 import discord
 from discord.ext import commands
 import json
 import os
 
 # Iniciar cog de prefijos:
-class prefix(commands.Cog):
+class Prefix(commands.Cog):
     def __init__(self, client):
         self.client = client
     
     @commands.Cog.listener()
     async def on_ready(self):
-        print(f"{__name__} está listo.")
+        logging.info(f"{self.__class__.__name__} está listo.")
 
 # Poner prefijo predeterminado al unir el bot a un servidor:
     @commands.Cog.listener()
@@ -64,4 +65,4 @@ class prefix(commands.Cog):
         await ctx.send(embed= embed_set)
         
 async def setup(client):
-    await client.add_cog(prefix(client))
+    await client.add_cog(Prefix(client))

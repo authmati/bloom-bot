@@ -1,16 +1,15 @@
 # Importar librerias necesarias:
+import logging
 import discord
-from discord import app_commands
 from discord.ext import commands
 
-# Iniciar cog de información de usuario:
-class userinfo(commands.Cog):
+class UserInfo(commands.Cog):
     def __init__(self, client):
         self.client = client
     
     @commands.Cog.listener()
     async def on_ready(self):
-        print(f"{__name__} está listo.")
+        logging.info(f"{self.__class__.__name__} está listo.")
 
 # Comando para acceder a la información de un usuario en especifico:
     @commands.hybrid_command(name="user", description="Este comando muestra la información del usuario.")
@@ -42,4 +41,4 @@ class userinfo(commands.Cog):
         await ctx.send(embed = info_embed)
 
 async def setup(client):
-    await client.add_cog(userinfo(client))
+    await client.add_cog(UserInfo(client))

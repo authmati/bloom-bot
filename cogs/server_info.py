@@ -1,17 +1,16 @@
 # Importar librerias necesarias:
+import logging
 import discord
-from discord import app_commands
 from discord.ext import commands
-import random
 
 # Iniciar cog de saludo:
-class serverinfo(commands.Cog):
+class ServerInfo(commands.Cog):
     def __init__(self, client):
         self.client = client
     
     @commands.Cog.listener()
     async def on_ready(self):
-        print(f"{__name__} está listo.")
+        logging.info(f"{self.__class__.__name__} está listo.")
 
 # Comando para que el bot te salude:
     @commands.hybrid_command(name="serverinfo", description="Muestra información sobre el servidor.")
@@ -45,4 +44,4 @@ class serverinfo(commands.Cog):
         await ctx.send(embed=embed)
 
 async def setup(client):
-    await client.add_cog(serverinfo(client))
+    await client.add_cog(ServerInfo(client))

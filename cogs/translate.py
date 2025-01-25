@@ -1,14 +1,20 @@
+import logging
 import discord
 from discord.ext import commands
 from googletrans import Translator, LANGUAGES
 
-class translationCog(commands.Cog):
+class Translation(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.translator = Translator()
 
+    @commands.Cog.listener()
+    async def on_ready(self):
+        logging.info(f"{self.__class__.__name__} está listo.")
+
     @commands.hybrid_command(name="traducir", description="Traduce texto a un idioma específico")
     async def translate(self, ctx, idioma, *, texto):
+
         """
         Comando para traducir texto a un idioma específico
         
@@ -16,6 +22,7 @@ class translationCog(commands.Cog):
         - idioma: Código del idioma de destino (ej. 'en', 'es', 'fr')
         - texto: Texto a traducir
         """
+        
         try:
             # Verificar si el código de idioma es válido
             if idioma.lower() not in LANGUAGES:
@@ -54,4 +61,4 @@ class translationCog(commands.Cog):
         await ctx.send(f"**Códigos de Idiomas Disponibles:**\n```\n{idiomas}\n```")
 
 async def setup(bot):
-    await bot.add_cog(translationCog(bot))
+    await bot.add_cog(Translation(bot))

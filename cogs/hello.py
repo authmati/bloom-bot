@@ -1,7 +1,7 @@
 # Importar librerias necesarias:
+import logging
 from discord.ext import commands
 import random
-
 
 # Iniciar cog de saludo:
 class Hello(commands.Cog):
@@ -10,7 +10,7 @@ class Hello(commands.Cog):
 
     @commands.Cog.listener()
     async def on_ready(self):
-        print(f"{__name__} está listo.")
+        logging.info(f"{self.__class__.__name__} está listo.")
 
     # Mensajes predeterminados al etiquetar al bot:
     @commands.Cog.listener()
