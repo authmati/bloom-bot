@@ -1,25 +1,15 @@
 # Importar librerias necesarias:
 import logging
 from prefixes_loader import get_prefix
-from cogs_loader import load_cogs
+from config_loader import load_config, load_cogs, get_token
 import discord
 from discord.ext import commands
-import json
 import asyncio
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-# Leer el token desde config.json:
-try:
-    with open("config.json", "r") as config_file:
-        config = json.load(config_file)
-        TOKEN = config["TOKEN"]
-except FileNotFoundError:
-    logging.error("El archivo 'config.json' no fue encontrado.")
-    exit()
-if not TOKEN or not  isinstance(TOKEN, str):
-    logging.error("El token proporcionado no es válido. Verifica el archivo 'config.json'.")
-    exit()
+config = load_config()
+TOKEN = get_token(config)
 
 # Crea una instancia del bot
 bot = commands.Bot(command_prefix=get_prefix, intents=discord.Intents.all())
