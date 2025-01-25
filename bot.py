@@ -10,9 +10,16 @@ import asyncio
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Leer el token desde config.json:
-with open("config.json", "r") as config_file:
-    config = json.load(config_file)
-    TOKEN = config["TOKEN"]
+try:
+    with open("config.json", "r") as config_file:
+        config = json.load(config_file)
+        TOKEN = config["TOKEN"]
+except FileNotFoundError:
+    logging.error("El archivo 'config.json' no fue encontrado.")
+    exit()
+if not TOKEN or not  isinstance(TOKEN, str):
+    logging.error("El token proporcionado no es válido. Verifica el archivo 'config.json'.")
+    exit()
 
 # Crea una instancia del bot
 bot = commands.Bot(command_prefix=get_prefix, intents=discord.Intents.all())
@@ -41,5 +48,5 @@ async def main():
         await load_cogs(bot)
         await bot.start(TOKEN)
 
-
-asyncio.run(main())
+if __name__ == "__main__":
+    asyncio.run(main())
