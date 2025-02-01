@@ -1,5 +1,6 @@
 # Ignora archivos o carpetas en este archivo gitignore
 
+venv/
 .env
 **/__pycache__
 **/macstatus.py
