@@ -1,15 +1,12 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/Desarrollado%20con-Python%203.10+-blue?logo=python&style=for-the-badge" alt="Python">
+  <img src="https://img.shields.io/badge/Desarrollado%20con-Python%203.10+-blue?logo=python&style=for-the-badge" alt="Python"> 
+   <img src="https://img.shields.io/badge/ESTADO-EN%20DESARROLLO-ff69b4?style=for-the-badge" alt="Estado">
   <img src="https://img.shields.io/badge/Licencia-MIT-green?style=for-the-badge" alt="Licencia">
-  <br>
-  <img src="https://img.shields.io/badge/ESTADO-EN%20DESARROLLO-ff69b4?style=for-the-badge" alt="Estado">
 </p>
 
-<h1 align="center">🌸 Bloom - Discord Bot</h1>
+# 🌸 Bloom - Discord Bot
 
 **Bloom** es un bot de Discord en desarrollo, creado con el propósito de aprender y experimentar con nuevas funcionalidades. Aunque aún es un proyecto sencillo, está en constante evolución, agregando y modificando características a medida que avanzo en mi aprendizaje.
-
----
 
 ## 🛠️ Instalación
 
@@ -76,8 +73,6 @@ Aquí tienes los comandos que **Bloom** soporta actualmente:
 ## 🤝 Contribución
 
 ¡Las contribuciones son bienvenidas! Si tienes ideas, sugerencias o mejoras, no dudes en crear un **pull request**. Estaré encantado de revisarlo y colaborar contigo.
-
----
 
 ## 👤 Autor
 
