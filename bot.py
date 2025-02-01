@@ -1,7 +1,6 @@
 # Importar librerias necesarias:
 import os
-from prefixes_loader import get_prefix
-from config_loader import load_cogs
+from config_loader import load_cogs, get_prefix
 from discord.ext import commands
 from dotenv import load_dotenv
 import logging
