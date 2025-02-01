@@ -1,15 +1,18 @@
 # Importar librerias necesarias:
-import logging
+import os
 from prefixes_loader import get_prefix
-from config_loader import load_config, load_cogs, get_token
-import discord
+from config_loader import load_cogs
 from discord.ext import commands
+from dotenv import load_dotenv
+import logging
+import discord
 import asyncio
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-config = load_config()
-TOKEN = get_token(config)
+# Cargar configuración y variables de entorno
+load_dotenv()
+TOKEN = os.getenv("DISCORD_TOKEN")
 
 # Crea una instancia del bot
 bot = commands.Bot(command_prefix=get_prefix, intents=discord.Intents.all())
