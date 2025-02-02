@@ -1,7 +1,7 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/Desarrollado%20con-Python%203.10+-blue?logo=python&style=for-the-badge" alt="Python"> 
-   <img src="https://img.shields.io/badge/ESTADO-EN%20DESARROLLO-ff69b4?style=for-the-badge" alt="Estado">
-  <img src="https://img.shields.io/badge/Licencia-MIT-green?style=for-the-badge" alt="Licencia">
+  <img src="https://img.shields.io/badge/python%203.10%2B-%23ff69b4?style=for-the-badge&logo=python&logoColor=%23ff69b4&label=desarrollado%20con&labelColor=%23242424" alt="Python"> 
+   <img src="https://img.shields.io/badge/en%20desarrollo-%23ff69b4?style=for-the-badge&label=estado&labelColor=%23242424" alt="Estado">
+  <img src="https://img.shields.io/badge/MIT-%23ff69b4?style=for-the-badge&label=licencia&labelColor=%23242424" alt="Licencia">
 </p>
 
 # 🌸 Bloom - Discord Bot
